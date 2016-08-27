@@ -6,12 +6,27 @@ import {
   requestBenches,
   receiveBenches
 } from './actions/bench_actions';
+import {Provider} from 'react-redux';
+import BenchIndexContainer from './components/bench_index_container';
 
+const Root = ({store}) => (
+  <Provider store={store}>
+    <BenchIndexContainer/>
+  </Provider>
+);
+// const Root = ({store}) => {
+//   debugger
+//   return (
+//     <Provider store={store}>
+//       <BenchIndexContainer/>
+//     </Provider>
+//   );
+// };
 
 document.addEventListener('DOMContentLoaded', () => {
-  window.store = configureStore();
+  let store = configureStore();
   window.requestBenches = requestBenches;
+  window.store = store;
 
-  // let store = configureStore()
-  ReactDOM.render(<p>I beat html Text</p>, document.getElementById('root'));
+  ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
 });
