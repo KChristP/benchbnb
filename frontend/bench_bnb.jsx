@@ -7,11 +7,11 @@ import {
   receiveBenches
 } from './actions/bench_actions';
 import {Provider} from 'react-redux';
-import BenchIndexContainer from './components/bench_index_container';
+import SearchContainer from './components/search_container';
 
 const Root = ({store}) => (
   <Provider store={store}>
-    <BenchIndexContainer/>
+    <SearchContainer/>
   </Provider>
 );
 // const Root = ({store}) => {
@@ -26,7 +26,7 @@ const Root = ({store}) => (
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
   window.requestBenches = requestBenches;
-  window.store = store;
+  window.Store = store;
 
   ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
 });

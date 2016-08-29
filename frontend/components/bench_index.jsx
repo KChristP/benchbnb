@@ -1,4 +1,5 @@
 import React from 'react';
+import BenchIndexItem from './bench_index_item';
 // import {requestBenches} from '../actions/bench_actions';
 
 
@@ -7,15 +8,12 @@ class BenchIndex extends React.Component {
     this.props.requestBenches();
   }
   render(){
-    let benchList;
+    let benchList = [];
     if (this.props.benches.keys !== undefined){
-      console.log(Object.keys(this.props.benches))
-      benchList = Object.keys(this.props.benches).map((key) => (
-      <div>
-        <li>{this.props.benches[parseInt(key)].description}</li>
-        <p>{this.props.benches[parseInt(key)].lat}</p>
-        <p>{this.props.benches[parseInt(key)].long}</p>
-      </div>
+      Object.keys(this.props.benches).forEach((key) => (
+        benchList.push(
+          <BenchIndexItem bench={this.props.benches[parseInt(key)]} key={key} />
+        )
       ));
     }
     return(
@@ -27,3 +25,6 @@ class BenchIndex extends React.Component {
 }
 
 export default BenchIndex;
+
+
+// AIzaSyAAuOB0rHBLwqQ-CbmRyLq-ZBxX4cyzti4
