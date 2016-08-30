@@ -1,0 +1,12 @@
+stupid stuff
+
+$.ajax({
+method: 'GET',
+url: '/api/benches',
+success: (data) => console.log(data)
+});
+$.ajax({
+    method: 'GET',
+    url: 'api/benches',
+    success
+  });

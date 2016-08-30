@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {withRouter} from 'react-router';
 
 class BenchMap extends React.Component {
   componentDidMount(){
@@ -19,4 +19,4 @@ class BenchMap extends React.Component {
   }
 }
 
-export default BenchMap;
+export default withRouter(BenchMap);
