@@ -5,8 +5,12 @@ method: 'GET',
 url: '/api/benches',
 success: (data) => console.log(data)
 });
+
+let success = (data) => console.log(data)
 $.ajax({
-    method: 'GET',
-    url: 'api/benches',
+    type: 'POST',
+    url: 'api/users',
+    dataType: 'json',
+    data: {user: {email: "a", password: "b"}},
     success
   });
